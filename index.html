@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Swasthya Setu Charitable Trust — Bridging Lives, Empowering Health</title>
+  <meta name="description" content="Community health initiatives in Vadodara: free blood grouping & smart cards, youth campaigns, Ayushman awareness, monthly medicines, and insurance support.">
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/script.js"></script>
+<script defer src="/i18n/i18n.js"></script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Swasthya Setu Charitable Trust">
+<meta property="og:image" content="https://example.com/assets/logo.svg">
+<meta name="theme-color" content="#A10000">
+
+</head>
+<body>
+  
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <img src="/assets/logo.svg" alt="Swasthya Setu logo" style="height:40px">
+      <div class="brand-title">Swasthya Setu Charitable Trust</div>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/press.html">Press</a>
+      <a href="/donate.html">Donate</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn">Menu</button>
+  </div>
+  <div class="container mobile-menu">
+    <a href="/">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/gallery.html">Gallery</a>
+    <a href="/press.html">Press</a>
+    <a href="/donate.html">Donate</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge" id="i-badge">Non-profit in Vadodara</span>
+        <h1 class="h1" id="i-headline">Bridging Lives. Empowering Health.</h1>
+        <p class="lead" id="i-lead">We deliver community health impact through blood group awareness & smart cards, youth engagement, Ayushman Yojana guidance, monthly medicines for the needy, and health insurance support for underprivileged families.</p>
+        <div class="lang-switch">
+          <span class="meta">Language:</span>
+          <button onclick="SS_I18N.set('en')">EN</button>
+          <button onclick="SS_I18N.set('hi')">हिं</button>
+          <button onclick="SS_I18N.set('gu')">ગુ</button>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary" id="i-cta-donate" href="/donate.html">Donate Now</a>
+          <a class="btn btn-ghost" id="i-cta-projects" href="/projects.html">See Projects</a>
+        </div>
+        <script>
+          (async function(){
+            const lang = SS_I18N.get();
+            const t = await fetch('/i18n/'+lang+'.json').then(r=>r.json()).catch(()=>null);
+            if(t){
+              document.getElementById('i-badge').textContent=t.badge;
+              document.getElementById('i-headline').textContent=t.headline;
+              document.getElementById('i-lead').textContent=t.lead;
+              document.getElementById('i-cta-donate').textContent=t.ctaDonate;
+              document.getElementById('i-cta-projects').textContent=t.ctaProjects;
+            }
+          })();
+        </script>
+        <div class="grid grid-3" style="margin-top:22px">
+          <div class="stat"><div class="num">50+</div><div class="meta">Elderly supported monthly</div></div>
+          <div class="stat"><div class="num">50</div><div class="meta">Families insured (goal 5000)</div></div>
+          <div class="stat"><div class="num">1000+</div><div class="meta">Youth reached in campaigns</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>What we do</h3>
+        <ul>
+          <li>Free blood group check & Smart Card distribution (Rakt Jagriti Abhiyan)</li>
+          <li>Youth outreach & health education drives</li>
+          <li>Ayushman Yojana awareness & helpline (Vadodara first, India next)</li>
+          <li>Monthly medicines for 50+ elderly / chronic patients</li>
+          <li>Insurance support for 50 families (scaling to 5000)</li>
+          <li>Coming soon: <b>Rakt Mitra</b> – a donor-matching app</li>
+        </ul>
+        <aside class="small">Co-founded by <b>Dr. Ashraf Saiyed</b> and <b>Fateh Pathan</b> with a board of seven trustees.</aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 style="margin-top:0">Latest from the Blog</h2>
+      <div id="blog-list" class="grid grid-3"></div>
+      <script>
+        fetch('/content/posts/index.json').then(r=>r.json()).then(list=>{
+          const wrap = document.getElementById('blog-list');
+          list.slice(0,3).forEach(p=>{
+            const d = document.createElement('div');
+            d.className = 'post';
+            d.innerHTML = '<div class="tag">BLOG</div><h3><a href="/posts/'+p.slug+'.html">'+p.title+'</a></h3><div class="meta">'+p.date+'</div><p>'+p.excerpt+'</p>';
+            wrap.appendChild(d);
+          });
+        }).catch(()=>{
+          document.getElementById('blog-list').innerHTML = '<div class="meta">No posts yet.</div>';
+        });
+      </script>
+    </section>
+  </main>
+  
+<footer class="footer">
+  <div class="container">
+    <div class="grid grid-2">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <img src="/assets/logo.svg" alt="logo" style="height:36px">
+          <div class="brand-title">Swasthya Setu Charitable Trust</div>
+        </div>
+        <div class="meta">A Vadodara-based non-profit bridging lives and empowering health.</div>
+        <div class="meta" style="margin-top:10px">© <span id="year"></span> Swasthya Setu Charitable Trust</div>
+        <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+      </div>
+      <div>
+        <div class="kv"><div class="k">Email</div><div><a href="mailto:Swasthiyasetu1@gmail.com">Swasthiyasetu1@gmail.com</a></div></div>
+        <div class="kv"><div class="k">Phone</div><div><a href="tel:+918780895721">+91 87808 95721</a> • <a href="tel:+919998272424">9998272424</a></div></div>
+        <div class="kv"><div class="k">Address</div><div>GF 5, Pushpam Heights, Near Madhunagar Char Rasta, Gorwa 390016</div></div>
+        <div class="kv"><div class="k">Social</div><div>
+          <a href="https://www.facebook.com/profile.php?id=61581117326243" target="_blank">Facebook</a> ·
+          <a href="https://www.instagram.com/swasthiyasetu/" target="_blank">Instagram</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

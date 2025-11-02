@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Press & Videos — Swasthya Setu Charitable Trust</title>
+  <meta name="description" content="Media coverage and videos about Swasthya Setu.">
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/script.js"></script>
+<script defer src="/i18n/i18n.js"></script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Swasthya Setu Charitable Trust">
+<meta property="og:image" content="https://example.com/assets/logo.svg">
+<meta name="theme-color" content="#A10000">
+
+</head>
+<body>
+  
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <img src="/assets/logo.svg" alt="Swasthya Setu logo" style="height:40px">
+      <div class="brand-title">Swasthya Setu Charitable Trust</div>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/press.html">Press</a>
+      <a href="/donate.html">Donate</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button class="menu-btn">Menu</button>
+  </div>
+  <div class="container mobile-menu">
+    <a href="/">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/gallery.html">Gallery</a>
+    <a href="/press.html">Press</a>
+    <a href="/donate.html">Donate</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</header>
+
+  <main class="container">
+    <section class="section" style="border-top:none">
+      <h1 class="h1">Press & Videos</h1>
+      <div class="grid grid-2" id="press-grid"></div>
+      <script>
+        fetch('/content/press.json').then(r=>r.json()).then(items=>{
+          const w=document.getElementById('press-grid');
+          items.forEach(it=>{
+            const d=document.createElement('div'); d.className='card';
+            if(it.type==='youtube'){
+              d.innerHTML='<h3>'+it.title+'</h3><div class="meta">'+it.date+'</div><div style="position:relative;padding-bottom:56.25%;height:0"><iframe src="https://www.youtube.com/embed/'+it.youtubeId+'" title="'+it.title+'" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe></div>';
+            }else{
+              d.innerHTML='<h3><a href="'+it.url+'" target="_blank" rel="noopener">'+it.title+'</a></h3><div class="meta">'+it.date+'</div><p>'+(it.outlet||'')+'</p>';
+            }
+            w.appendChild(d);
+          });
+        }).catch(()=>{ document.getElementById('press-grid').innerHTML = '<div class="meta">No press items yet.</div>'; });
+      </script>
+    </section>
+  </main>
+  
+<footer class="footer">
+  <div class="container">
+    <div class="grid grid-2">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <img src="/assets/logo.svg" alt="logo" style="height:36px">
+          <div class="brand-title">Swasthya Setu Charitable Trust</div>
+        </div>
+        <div class="meta">A Vadodara-based non-profit bridging lives and empowering health.</div>
+        <div class="meta" style="margin-top:10px">© <span id="year"></span> Swasthya Setu Charitable Trust</div>
+        <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+      </div>
+      <div>
+        <div class="kv"><div class="k">Email</div><div><a href="mailto:Swasthiyasetu1@gmail.com">Swasthiyasetu1@gmail.com</a></div></div>
+        <div class="kv"><div class="k">Phone</div><div><a href="tel:+918780895721">+91 87808 95721</a> • <a href="tel:+919998272424">9998272424</a></div></div>
+        <div class="kv"><div class="k">Address</div><div>GF 5, Pushpam Heights, Near Madhunagar Char Rasta, Gorwa 390016</div></div>
+        <div class="kv"><div class="k">Social</div><div>
+          <a href="https://www.facebook.com/profile.php?id=61581117326243" target="_blank">Facebook</a> ·
+          <a href="https://www.instagram.com/swasthiyasetu/" target="_blank">Instagram</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

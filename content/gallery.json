@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "src": "/assets/gallery/sample1.jpg",
+      "alt": "Youth camp awareness talk"
+    },
+    {
+      "src": "/assets/gallery/sample2.jpg",
+      "alt": "Free blood group test camp"
+    },
+    {
+      "src": "/assets/gallery/sample3.jpg",
+      "alt": "Smart card distribution"
+    }
+  ]
+}
