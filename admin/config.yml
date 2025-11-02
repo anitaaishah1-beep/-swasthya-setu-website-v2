@@ -11,95 +11,127 @@ public_folder: "/assets/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "posts"
-    label: "Blog Posts"
-    folder: "posts"
+  - name: posts
+    label: Blog Posts
+    folder: posts
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: Title
+        name: title
+        widget: string
+      - label: Date
+        name: date
+        widget: datetime
+      - label: Excerpt
+        name: excerpt
+        widget: text
+      - label: Body
+        name: body
+        widget: markdown
 
-  - name: "posts_index"
-    label: "Posts Index"
+  - name: posts_index
+    label: Posts Index
     files:
-      - label: "Blog Index"
-        name: "index"
-        file: "content/posts/index.json"
+      - label: Blog Index
+        name: index
+        file: content/posts/index.json
         fields:
-          - label: "Posts"
-            name: "posts"
-            widget: "list"
+          - label: Posts
+            name: posts
+            widget: list
             fields:
-              - {label:"Title", name:"title", widget:"string"}
-              - {label:"Slug", name:"slug", widget:"string"}
-              - {label:"Date", name:"date", widget:"datetime"}
-              - {label:"Excerpt", name:"excerpt", widget:"text"}
+              - label: Title
+                name: title
+                widget: string
+              - label: Slug
+                name: slug
+                widget: string
+              - label: Date
+                name: date
+                widget: datetime
+              - label: Excerpt
+                name: excerpt
+                widget: text
 
-  - name: "gallery"
-    label: "Gallery"
+  - name: gallery
+    label: Gallery
     files:
-      - label: "Gallery Images"
-        name: "images"
-        file: "content/gallery.json"
+      - label: Gallery Images
+        name: images
+        file: content/gallery.json
         fields:
-          - label: "Images"
-            name: "images"
-            widget: "list"
+          - label: Images
+            name: images
+            widget: list
             fields:
-              - {label:"Image", name:"src", widget:"image"}
-              - {label:"Alt Text", name:"alt", widget:"string"}
+              - label: Image
+                name: src
+                widget: image
+              - label: Alt Text
+                name: alt
+                widget: string
 
-  - name: "press"
-    label: "Press / Videos"
+  - name: press
+    label: Press / Videos
     files:
-      - label: "Press Items"
-        name: "items"
-        file: "content/press.json"
+      - label: Press Items
+        name: items
+        file: content/press.json
         fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
+          - label: Items
+            name: items
+            widget: list
             fields:
-              - label: "Type"
-                name: "type"
-                widget: "select"
+              - label: Type
+                name: type
+                widget: select
                 options:
-                  - "link"
-                  - "youtube"
-              - label: "Title"
-                name: "title"
-                widget: "string"
-              - label: "URL"
-                name: "url"
-                widget: "string"
+                  - link
+                  - youtube
+              - label: Title
+                name: title
+                widget: string
+              - label: URL
+                name: url
+                widget: string
                 required: false
-              - label: "YouTube ID"
-                name: "youtubeId"
-                widget: "string"
+              - label: YouTube ID
+                name: youtubeId
+                widget: string
                 required: false
-              - label: "Outlet"
-                name: "outlet"
-                widget: "string"
+              - label: Outlet
+                name: outlet
+                widget: string
                 required: false
-              - label: "Date"
-                name: "date"
-                widget: "datetime"
+              - label: Date
+                name: date
+                widget: datetime
 
-  - name: "texts"
-    label: "Site Text (Languages)"
+  - name: texts
+    label: Site Text (Languages)
     files:
-      - label: "English"
-        name: "en"
-        file: "i18n/en.json"
-        fields: [{label:"JSON", name:"raw", widget:"code", default_language:"json"}]
-      - label: "Hindi"
-        name: "hi"
-        file: "i18n/hi.json"
-        fields: [{label:"JSON", name:"raw", widget:"code", default_language:"json"}]
-      - label: "Gujarati"
-        name: "gu"
-        file: "i18n/gu.json"
-        fields: [{label:"JSON", name:"raw", widget:"code", default_language:"json"}]
+      - label: English
+        name: en
+        file: i18n/en.json
+        fields:
+          - label: JSON
+            name: raw
+            widget: code
+            default_language: json
+      - label: Hindi
+        name: hi
+        file: i18n/hi.json
+        fields:
+          - label: JSON
+            name: raw
+            widget: code
+            default_language: json
+      - label: Gujarati
+        name: gu
+        file: i18n/gu.json
+        fields:
+          - label: JSON
+            name: raw
+            widget: code
+            default_language: json
