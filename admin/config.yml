@@ -2,8 +2,8 @@ backend:
   name: github
   repo: anitaaishah1-beep/-swasthya-setu-website-v2
   branch: main
-  # For GitHub OAuth login you need a proxy or Netlify Identity.
-  # Set base_url to your OAuth proxy if used.
+  base_url: https://swasthya-setu-oauth.fly.dev
+  auth_endpoint: auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
